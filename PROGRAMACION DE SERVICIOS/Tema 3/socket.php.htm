@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/plantilla_php.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Socket java vs java</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<!-- InstanceBeginEditable name="head" -->
+  
+  <meta name="Author" content="Chuidiang Roxas" />
+  <meta name="Description"
+ content="Ejemplo de sockets en java con cliente y servidor en java" />
+  <meta name="Keywords"
+ content="java, socket, cliente, servidor, serializable" />
+  
+<!-- InstanceEndEditable -->
+<link href="/estilo_general.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<script type="text/javascript">window.___gcfg = {lang: 'es'};(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script><div id="cabecera"><h1><a href="http://www.chuidiang.com">Ejemplos java y C/linux</a> <g:plusone></g:plusone> <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="chuidiang" data-lang="es">Twittear</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></h1><div id="busqueda_google"><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.es/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="chuidiang.com"></input>
+<label for="sbi" style="display: none">Introduzca los términos de búsqueda.</label>
+<input type="text" name="q" size="30" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Envíe el formulario de búsqueda</label>
+<input type="submit" name="sa" value="Búsqueda" id="sbb"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked" id="ss0"></input>
+<label for="ss0" title="Buscar en la web"><font size="-1" color="#000000">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="chuidiang.com" id="ss1"></input>
+<label for="ss1" title="Búsqueda chuidiang.com"><font size="-1" color="#000000">chuidiang.com</font></label></td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-9287470222246340"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:100;LW:92;L:http://www.chuidiang.com/iconos/serpi.gif;S:http://www.chuidiang.com;LP:1;FORID:1"></input>
+<input type="hidden" name="hl" value="es"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></div></div><div id="barra_izquierda">	<h2>Tutoriales</h2>
+	<ul>
+		<li><a href="/java/index.php">Java</a></li>
+		<li><a href="/clinux/index.php">C/C++ de Linux</a></li>
+		<li><a href="/ood/index.php">Metodologías y diseño orientado a objetos</a></li>
+		<li><a href="/css/index.php">CSS</a></li>
+		<li style="list-style-type:none"><br/><script type="text/javascript"><!--
+google_ad_client = "pub-9287470222246340";
+google_ad_width = 120;
+google_ad_height = 240;
+google_ad_format = "120x240_as";
+google_ad_type = "text";
+//2006-12-16: blog_wordpress
+google_ad_channel = "0854862819";
+google_color_border = "ffffff";
+google_color_bg = "ffffff";
+google_color_link = "0066B3";
+google_color_text = "000000";
+google_color_url = "0066B3";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></li>
+	</ul><h2>Enlaces</h2>
+	<ul>
+		<li><a href="http://blog.chuidiang.com">Diario de Programaci&oacute;n</a></li>
+		<li><a href="http://chuidiang.org">M&aacute;s de Java</a></li>
+		<li><a href="http://chuwiki.chuidiang.org">Chuwiki</a></li>
+		<li><a href="http://micro-blog.chuidiang.org">Micro entradas</a></li>
+		<li><a href="http://foro.chuidiang.com">Foro de Java y C++</a></li>
+		<li><a href="http://proyectos.chuidiang.com">Mis proyectos</a></li>
+		<li><a href="http://www.chuidiang.com/varios/index.php">Pasatiempos</a></li>
+	</ul><h2>Licencia</h2>
+	<div class="postit"><!--Creative Commons License-->
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/deed.es">
+<img alt="Creative Commons License" style="border-width: 0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/88x31.png"/>
+</a>
+<br/>Esta obra est&#225; bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/deed.es">licencia de Creative Commons</a>.<!--/Creative Commons License--><!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+       <Work rdf:about="">
+               <license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" />
+       <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+       </Work>
+       <License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.5/es/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"/><permits rdf:resource="http://web.resource.org/cc/Distribution"/><requires rdf:resource="http://web.resource.org/cc/Notice"/><requires rdf:resource="http://web.resource.org/cc/Attribution"/><prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/><requires rdf:resource="http://web.resource.org/cc/ShareAlike"/></License></rdf:RDF> -->
+	   <br/>Para reconocer la autor&iacute;a debes poner el enlace <a href="http://www.chuidiang.com">http://www.chuidiang.com</a>
+</div><h2>Estad&iacute;sticas</h2>
+	<div class="postit"><!-- ADDFREESTATS.COM AUTOCODE V4.0 -->
+<script type="text/javascript">
+<!--
+var AFS_Account="00705167";
+var AFS_Tracker="auto";
+var AFS_Server="www7";
+var AFS_Page="DetectName";
+var AFS_Url="DetectUrl";
+// -->
+</script>
+<script type="text/javascript" src="http://www7.addfreestats.com/cgi-bin/afstrack.cgi?usr=00705167">
+</script>
+<noscript>
+<a href="http://www.addfreestats.com" >
+<img src="http://www7.addfreestats.com/cgi-bin/connect.cgi?usr=00705167Pauto" 
+border="0" title="AddFreeStats.com Free Web Stats!" alt="addfreestats"/></a>
+</noscript>
+<!-- ENDADDFREESTATS.COM AUTOCODE V4.0  -->
+</div></div>  <div id="contenedor">
+  	<div id="contenido"> 
+	<div id="barra_google"><script type="text/javascript"><!--
+google_ad_client = "pub-9287470222246340";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+//2006-10-30: barra
+google_ad_channel = "8560508614";
+google_color_border = "ffffff";
+google_color_bg = "ffffff";
+google_color_link = "0066B3";
+google_color_text = "663300";
+google_color_url = "0066B3";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>	<h3><!-- InstanceBeginEditable name="TituloArticulo" -->Comunicar con socket 
+      dos programas java<!-- InstanceEndEditable --></h3>
+	<!-- InstanceBeginEditable name="ParrafoInicial" --><p>En este tutorial vamos a conectar un servidor hecho en java con un
+cliente en java y ver c&oacute;mo pasar datos de uno a otro. Para una
+explicaci&oacute;n de lo que es un socket, un servidor, un cliente,
+puedes ver la primera parte del <a
+ href="../../clinux/sockets/sockets_simp.php">ejemplo
+de sockets</a> en C. Aunque sea en C, los coceptos son los mismos.
+Utilizo la versi&oacute;n de J2SE 1.4.1_01.</p>
+<p>Al final hay unos fuentes de ejemplo como aplicaciones
+independientes. No intentes todo esto desde un applet porque
+tendr&aacute;s problemas de permisos.</p>
+<!-- InstanceEndEditable --> 
+    <div id="anuncio_central"><script type="text/javascript"><!--
+google_ad_client = "pub-9287470222246340";
+/* 336x280, creado 15/06/10 principal */
+google_ad_slot = "6087327506";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<script type="text/javascript"><!--
+google_ad_client = "pub-9287470222246340";
+/* 336x280, creado 15/06/10 principal */
+google_ad_slot = "6087327506";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>    <!-- InstanceBeginEditable name="RestoArticulo" -->
+    <h4>EL SERVIDOR</h4>
+<p>Los pasos que debemos dar en el servidor son los siguientes:</p>
+    <ul>
+      <li>Crear el socket servidor</li>
+      <li>Aceptar un cliente</li>
+      <li>Obtener los InputStream y/o OutputStream del cliente.</li>
+      <li>Crear unos InputStream y/o OutputStream m&aacute;s adecuados a nuestras 
+        necesidades.</li>
+      <li>Leer y escribir datos del y al cliente.</li>
+      <li>Cerrar el socket.</li>
+    </ul>
+    <h4>Crear el socket servidor</h4>
+<p>Para hacer el servidor en java tenemos la clase <strong>ServerSocket</strong>.
+Al instanciarla usaremos el constructor al que se le pasa un
+n&uacute;mero de servicio (de puerto). Como se vio en C, este
+n&uacute;mero de puerto puede ser cualquier entero entre 1 y 65535. Los
+n&uacute;meros de 1 a 1023 est&aacute;n reservados para servicios del
+sistema (como ftp, mail, www, telnet, etc, etc). Del 1024 en adelante
+podemos usarlos a nuestro gusto. Lo &uacute;nico es que no puede haber
+dos servidores atendiendo al mismo puerto/servicio.</p>
+<p class="codigo">ServerSocket socket = new
+ServerSocket (35557);</p>
+    <h4>Aceptar un cliente</h4>
+<p>Una vez creado el servidor, le decimos que empiece a atender
+conexiones de clientes. Para ello llamamos al m&eacute;todo <strong>accept()</strong>.
+Este m&eacute;todo se queda bloqueado hasta que alg&uacute;n cliente se
+conecta. Nos devuelve un <strong>Socket</strong>, que es la conexi&oacute;n con
+dicho cliente.</p>
+<p class="codigo">Socket cliente = socket.accept();</p>
+<p>Podemos aceptar simult&aacute;neamente varios clientes, pero para
+atenderlos necesitaremos programaci&oacute;n multitarea o algo similar.</p>
+    <h4>Obtener el InputStream y/o OutputStream</h4>
+<p>Ahora en <strong>cliente</strong> tenemos la conexi&oacute;n con el cliente
+(valga la redundancia). Lo &uacute;nico que tenemos que hacer es
+obtener de &eacute;l el <strong>OuputStream</strong> o <strong>InputStream</strong> con
+los m&eacute;todos <strong>getOutputStream()</strong> o <strong>getInputStream()</strong>.
+La clase <strong>OutpuStream</strong> nos sirve para enviarle datos al cliente.
+La clase <strong>InputStream</strong> nos sirve para leer datos del cliente.</p>
+<p class="codigo">InputStream entrada =
+cliente.getIntputStream();<br />
+OutputStream salida = cliente.getOutputStream();</p>
+<p>Construirnos un <strong>InputStream</strong> y/o un <strong>OutputStream</strong>
+m&aacute;s adecuados a nuestras necesidades</p>
+<p>Los m&eacute;todos de estas dos clases para leer o escribr datos son
+un poco feos, ya que &uacute;nicamente env&iacute;an bytes. Suele ser
+habitual construir alguna otra clase de entrada/salida de datos que
+tenga m&eacute;todos m&aacute;s adecuados:</p>
+<ul>
+  <li>Si queremos enviar o recibir tipos normales (enteros, flotantes,
+strings) tenemos las clases <strong>DataInputStream</strong> y <strong>DataOutputStream</strong>.
+Estas clases tienen un constructor que admite un <strong>InputStream</strong> y
+un <strong>OutputStream</strong> respectivamente.<br />
+    <p class="codigo">DataInputStream entradaDatos =
+new DataInputStream
+(entrada);<br />
+DataOuputStream salidaDatos = new DataOutputStream (salida);</p>
+    
+  </li>
+  <li>Si queremos enviar o recibir clases enteras propias nuestras,
+tenemos las clases <strong>ObjectInputStream</strong> y <strong>ObjectDataStream</strong>.
+Al igual que las anteriores, usaremos el constructor que admite un <strong>InputStream</strong>
+y un <strong>OutputStream</strong><br />
+    <p class="codigo">ObjectInputStream entradaObjetos
+= new ObjectInputStream
+(entrada);<br />
+ObjectOutputStream salidaObjetos = new ObjectOutputStream (salida);</p>
+      </li>
+</ul>
+<p>Estas nuevas clases tienen m&eacute;todos m&aacute;s bonitos de usar
+(<strong>writeInt()</strong>, <strong>writeChar()</strong>, etc)</p>
+    <h4>Envio/Lectura de datos normales (enteros, flotantes, strings)</h4>
+<p>El env&iacute;o/lectura de datos normales se hace con las clases <strong>DataInputStream</strong>
+y <strong>DataOutputStream</strong>. No tienen ning&uacute;n truco especial,
+basta usar el metodo adecuado (<strong>writeInt()</strong>, <strong>writeFloat()</strong>,
+<strong>readInt()</strong>, etc). Para strings usaremos los m&eacute;todos <strong>writeUTF()</strong>
+y <strong>readUTF()</strong>, que env&iacute;an/leen las cadenas en formato UTF.</p>
+    <h4>Envio/Lectura de clases enteras</h4>
+<p>Para el envio/lectura de clases normales usaremos los m&eacute;todos<strong>
+readObject()</strong> y <strong>writeObject()</strong> de <strong>ObjectInputStream</strong> y
+<strong>ObjectOutputStream</strong>. Para poder usar estos m&eacute;todos las
+clases que enviemos deben implementar la interface <strong>Serializable</strong>.</p>
+<p>Las clases de tipos de java (<strong>Integer</strong>, <strong>Float</strong>, <strong>String</strong>,
+etc) implementan esa interface, as&iacute; que se pueden enviar/leer a
+trav&eacute;s de estos m&eacute;todos.</p>
+<p>Si una clase nuestra contiene atributos que sean primitivos de java (<strong>int</strong>,
+<strong>float</strong>, etc) o clases primitivas (<strong>Float</strong>, <strong>Integer</strong>, <strong>String</strong>,
+etc), basta con hacer que implemente la interface <strong>Serializable</strong>
+para poder enviarlas. No hace falta que escribamos ning&uacute;n
+m&eacute;todo, simplemente poner que se implementa.</p>
+    <p class="codigo"><span class="comentario_codigo">// Esta clase se puede enviar/leer 
+      por un socket.</span><br />
+class Atributo implements Serializable<br />
+{<br />
+&nbsp;&nbsp;&nbsp;int a;<br />
+&nbsp;&nbsp;&nbsp;String b;<br />
+}</p>
+<p>Si alguno de los atributos no es primitivo de java, basta con que
+implemente la misma interface <strong>Serializable</strong>. Si es as&iacute;,
+no tendremos ning&uacute;n problema.</p>
+    <p class="codigo"><span class="comentario_codigo">// Esta clase se puede enviar/leer 
+      por un socket</span><br />
+class DatoSocket implements Serializable<br />
+{<br />
+&nbsp;&nbsp;&nbsp;int c;<br />
+&nbsp;&nbsp;&nbsp;String d;<br />
+      &nbsp;&nbsp;&nbsp;Atributo e; <span class="comentario_codigo">// Esta clase 
+      es serializable.</span><br />
+}</p>
+<p>Si alguna de las clases no es <strong>Serializable</strong>, tendremos que
+implementar los m&eacute;todos privados </p>
+<p class="codigo"> private void
+writeObject(java.io.ObjectOutputStream out)
+throws IOException { <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="comentario_codigo">// Enviamos los 
+      atributos a y b en un orden cualquiera.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;out.writeInt (a);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;out.writeUtf (b);<br />
+}<br />
+      <br />
+private void readObject(java.io.ObjectInputStream in) throws
+IOException, ClassNotFoundException { <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="comentario_codigo">// Leemos los atributos 
+      a y b en el mismo orden que los enviamos en writeObject()</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;a = in.readInt();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;b = in.readUtf();<br />
+}</p>
+<p>En el m&eacute;todo<strong> writeObject()</strong> debermos enviar por el <strong>ObjectOutputStream</strong>
+todos los atributos de nuestra clase, en el orden que consideremos
+adecuado. En el m&eacute;todo <strong>readObject()</strong> deberemos ir leyendo
+del <strong>ObjectInputStream</strong> todos los atributos de nuestra clase e ir
+rellenando nuestros atributos. El orden en que leemos debe ser el mismo
+que en el que escribimos y el formato leido el mismo que el escrito.</p>
+<p>En los dos cuadros de ejemplo de arriba hemos puesto el
+c&oacute;digo de ambos m&eacute;todos para la clase <strong>Atributo</strong>,
+pero realmente no hace falta escribir este c&oacute;digo. En los
+fuentes de ejemplo aparece el c&oacute;digo, pero est&aacute;
+comentado. Si lo descomentas funcionar&aacute; igual.</p>
+<p>Para enviar una de estas clases el c&oacute;digo es sencillo</p>
+<p class="codigo">DatoSocket dato = new DatoSocket();<br />
+cliente.writeObject(dato);</p>
+<p>Para leerlo es igual de simple, s&oacute;lo que tenemos que saber
+qu&eacute; tipo de clase estamos recibiendo para hacer el "cast"
+adecuado.</p>
+<p class="codigo">DatoSocket dato;<br />
+Object aux;<br />
+      aux = socket.readObject();<span class="comentario_codigo">// Se lee el objeto</span><br />
+      if (aux instanceof DatoSocket) <span class="comentario_codigo">// Se comprueba 
+      si es de tipo DatoSocket</span><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;dato = (DatoSocket)aux; <span class="comentario_codigo">// 
+      Se hace el cast.</span></p>
+<p>Debemos ir haciendo varios if con las posibles clases que nos
+env&iacute;en desde el otro lado.</p>
+    <h4>Cierre del socket</h4>
+<p>Para cerrar un socket hay que llamar a la funci&oacute;n <strong>close()</strong>.</p>
+    <p class="codigo">cliente.close(); <span class="comentario_codigo">// Con 
+      esto se cierra la conexi&oacute;n con el cliente.</span><br />
+      socket.close(); <span class="comentario_codigo">// Con esto se cierra el 
+      socket servidor, ya no atendemos m&aacute;s conexiones. </span></p>
+    <h4>EL CLIENTE</h4>
+<p>Para el cliente tenemos la clase <strong>Socket</strong>. Basta instanciarla
+indicandole contra que m&aacute;quina conectarse y el puerto con el que
+debe conectarse. Debe ser el mismo que el puerto que est&aacute;
+atendiendo el servidor.</p>
+<p class="codigo">Socket socket = new Socket
+("localhost", 35557);</p>
+<p>El resto es igual que en el servidor.</p>
+    <h4>EL EJEMPLO</h4>
+<p>Tienes los fuentes de un ejemplo entre un servidor y un cliente. <a
+ href="SocketServidor.java.txt">SocketServidor.java</a> es el servidor,<a
+ href="SocketCliente.java.txt"> SocketCliente.java</a> es el cliente, <a
+ href="Atributo.java.txt">Atributo.java</a> es un atributo de una clase
+a enviar y <a href="DatoSocket.java.txt">DatoSocket.java</a> es la
+clase a enviar, que contiene un Atributo. Puedes bajarte los fuentes,
+quitarles la extensi&oacute;n .txt y compilarlos y ejecutarlos. Si todo
+est&aacute; en el mismo directorio, puedes compilarlos desde una shell
+de linux o una ventana de ms-dos con </p>
+<p class="codigo">$ javac SocketServidor.java
+SocketCliente.java
+DatoSocket.java Atributo.java</p>
+<p>Para ejecutarlo, abre dos shell o ventanas de ms-dos distintas,
+situadas en el directorio donde est&eacute; todo esto y escribe </p>
+<div class="codigo">$ java SocketServidor</div>
+<div class="codigo">$ java SocketCliente</div>
+<!-- InstanceEndEditable -->
+	<h4>Estad&iacute;sticas y comentarios</h4><h5>Numero de visitas desde el 4 Feb 2007:</h5><ul><li>Esta pagina este mes: 269</li><li>Total de esta pagina: 99536</li><li>Total del sitio: 10960822</li></ul></div>
+	  </div>
+  	<script src="/astrack.js" type="text/javascript"></script><div id="pie"><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-256265-1";
+urchinTracker();
+</script></div></body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,14 @@
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\bin\Debug\net10.0\ProjPrueba.exe
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\bin\Debug\net10.0\ProjPrueba.deps.json
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\bin\Debug\net10.0\ProjPrueba.runtimeconfig.json
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\bin\Debug\net10.0\ProjPrueba.dll
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\bin\Debug\net10.0\ProjPrueba.pdb
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\ProjPrueba.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\ProjPrueba.AssemblyInfoInputs.cache
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\ProjPrueba.AssemblyInfo.cs
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\ProjPrueba.csproj.CoreCompileInputs.cache
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\ProjPrueba.dll
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\refint\ProjPrueba.dll
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\ProjPrueba.pdb
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\ProjPrueba.genruntimeconfig.cache
+C:\Users\rober\OneDrive - Centro de Formación Somorrostro\DAM2\ACCESO A DATOS\Ejercicios\ProjPrueba\obj\Debug\net10.0\ref\ProjPrueba.dll

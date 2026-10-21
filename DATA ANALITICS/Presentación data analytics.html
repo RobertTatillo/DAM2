@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a Data Analytics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #4a5568;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #2d3748;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
+            padding-left: 20px;
+        }
+
+        h3 {
+            color: #4a5568;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-left: 5px solid #4299e1;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #fc8181;
+        }
+
+        .comparison-card.analytics {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            border-color: #68d391;
+        }
+
+        .comparison-card.science {
+            background: linear-gradient(135deg, #fffaf0 0%, #fbd38d 100%);
+            border-color: #f6ad55;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tool-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #cbd5e0;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .jupyter-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #4fd1c7;
+        }
+
+        .code-demo {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fed7fe 0%, #fbb6ce 100%);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        ul {
+            font-size: 1.1rem;
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #fef5e7 0%, #fbd38d 100%);
+            padding: 20px;
+            border-radius: 50%;
+            text-align: center;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 3px solid #f6ad55;
+            margin: 10px;
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #667eea;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+                margin: 10px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .process-flow {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Slide 1: Título -->
+        <div class="slide">
+            <h1>Data Analytics</h1>
+            <div style="text-align: center; margin-top: 50px;">
+                <h2 style="border: none; padding: 0;">Introducción al Análisis de Datos</h2>
+                <p style="font-size: 1.3rem; margin-top: 30px; color: #666;">
+                    Fundamentos y Herramientas
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 2: ¿Qué es Data Analytics? -->
+        <div class="slide">
+            <h1>¿Qué es Data Analytics?</h1>
+            
+            <div class="definition-box">
+                El <strong>análisis de datos</strong> es el proceso de examinar, limpiar, transformar y modelar datos para descubrir información útil, llegar a conclusiones y apoyar la toma de decisiones.
+            </div>
+
+            <h3>En términos simples:</h3>
+            <ul>
+                <li><strong>Recopilar</strong> datos de diferentes fuentes</li>
+                <li><strong>Limpiar</strong> y organizar esos datos</li>
+                <li><strong>Analizar</strong> patrones y tendencias</li>
+                <li><strong>Visualizar</strong> los resultados</li>
+                <li><strong>Tomar decisiones</strong> basadas en evidencia</li>
+            </ul>
+
+            <div class="process-flow">
+                <div class="process-step">📊<br>Datos</div>
+                <div class="arrow">→</div>
+                <div class="process-step">🧹<br>Limpieza</div>
+                <div class="arrow">→</div>
+                <div class="process-step">🔍<br>Análisis</div>
+                <div class="arrow">→</div>
+                <div class="process-step">📈<br>Insights</div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Importancia del Data Analytics -->
+        <div class="slide">
+            <h1>¿Por qué es importante?</h1>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🏢</div>
+                    <h3>Empresas</h3>
+                    <p>Mejoran sus ventas, optimizan procesos y conocen mejor a sus clientes</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🏥</div>
+                    <h3>Salud</h3>
+                    <p>Diagnósticos más precisos, seguimiento de epidemias, medicina personalizada</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🏙️</div>
+                    <h3>Ciudades</h3>
+                    <p>Gestión del tráfico, servicios públicos más eficientes, planificación urbana</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🎯</div>
+                    <h3>Marketing</h3>
+                    <p>Publicidad personalizada, análisis de tendencias, segmentación de audiencias</p>
+                </div>
+            </div>
+
+            <div class="highlight" style="text-align: center; margin-top: 30px;">
+                ¡Vivimos en la era de los datos! Cada día se generan 2.5 quintillones de bytes de datos.
+            </div>
+        </div>
+
+        <!-- Slide 4: Data Analytics vs Data Science vs Machine Learning -->
+        <div class="slide">
+            <h1>Diferencias Clave</h1>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card analytics">
+                    <h3>📊 Data Analytics</h3>
+                    <ul>
+                        <li><strong>Objetivo:</strong> Entender qué pasó y por qué</li>
+                        <li><strong>Enfoque:</strong> Descriptivo y diagnóstico</li>
+                        <li><strong>Herramientas:</strong> Excel, Python, SQL, Tableau</li>
+                        <li><strong>Ejemplo:</strong> "Las ventas bajaron 15% en diciembre"</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card science">
+                    <h3>🔬 Data Science</h3>
+                    <ul>
+                        <li><strong>Objetivo:</strong> Predecir qué pasará</li>
+                        <li><strong>Enfoque:</strong> Predictivo y prescriptivo</li>
+                        <li><strong>Herramientas:</strong> Python, R, ML, Big Data</li>
+                        <li><strong>Ejemplo:</strong> "Las ventas bajarán 10% el próximo mes"</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>🤖 Machine Learning</h3>
+                    <ul>
+                        <li><strong>Objetivo:</strong> Automatizar predicciones</li>
+                        <li><strong>Enfoque:</strong> Algoritmos que aprenden</li>
+                        <li><strong>Herramientas:</strong> TensorFlow, PyTorch, Scikit-learn</li>
+                        <li><strong>Ejemplo:</strong> "Sistema que predice automáticamente"</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 20px;">
+                <span class="highlight">En este curso nos enfocaremos en Data Analytics</span>
+            </p>
+        </div>
+
+        <!-- Slide 5: Herramientas del Ecosistema -->
+        <div class="slide">
+            <h1>Herramientas que Usaremos</h1>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Lenguaje de programación principal para análisis de datos</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">💻</div>
+                    <h3>VSCode</h3>
+                    <p>Editor de código principal para desarrollo local</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">☁️</div>
+                    <h3>Google Colab</h3>
+                    <p>Entorno en la nube para ejecutar notebooks</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">📓</div>
+                    <h3>Jupyter Notebooks</h3>
+                    <p>Documentos interactivos que mezclan código y texto</p>
+                </div>
+            </div>
+
+            <h3>Librerías principales que aprenderemos:</h3>
+            <ul>
+                <li><strong>Pandas:</strong> Manipulación y análisis de datos</li>
+                <li><strong>NumPy:</strong> Operaciones matemáticas y arrays</li>
+                <li><strong>Matplotlib/Seaborn:</strong> Visualización de datos</li>
+                <li><strong>Plotly:</strong> Gráficos interactivos</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: ¿Qué son los Jupyter Notebooks? -->
+        <div class="slide">
+            <h1>Jupyter Notebooks (.ipynb)</h1>
+            
+            <div class="definition-box">
+                Un <strong>Jupyter Notebook</strong> es un documento interactivo que permite combinar código ejecutable, texto explicativo, ecuaciones matemáticas y visualizaciones en un solo lugar.
+            </div>
+
+            <h3>Características principales:</h3>
+            <div class="jupyter-features">
+                <div class="feature">
+                    <strong>📝 Interactivo</strong><br>
+                    Ejecuta código línea por línea
+                </div>
+                <div class="feature">
+                    <strong>📚 Documentado</strong><br>
+                    Mezcla código con explicaciones
+                </div>
+                <div class="feature">
+                    <strong>🔄 Reproducible</strong><br>
+                    Otros pueden ejecutar tu trabajo
+                </div>
+                <div class="feature">
+                    <strong>📊 Visual</strong><br>
+                    Gráficos integrados en el documento
+                </div>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 1.1rem;">
+                <strong>Extensión:</strong> <span class="highlight">.ipynb</span> (Interactive Python Notebook)
+            </p>
+        </div>
+
+        <!-- Slide 7: Componentes de un Notebook -->
+        <div class="slide">
+            <h1>Componentes de un Notebook</h1>
+            
+            <h3>1. Celdas de Código</h3>
+            <div class="code-demo">
+# Ejemplo de celda de código
+import pandas as pd
+datos = [1, 2, 3, 4, 5]
+promedio = sum(datos) / len(datos)
+print(f"El promedio es: {promedio}")
+            </div>
+
+            <h3>2. Celdas de Markdown (Texto)</h3>
+            <div style="background: #f7fafc; padding: 20px; border-radius: 10px; border-left: 5px solid #4299e1;">
+                <p><strong># Título Principal</strong></p>
+                <p><strong>## Subtítulo</strong></p>
+                <p>Texto normal con <strong>**negrita**</strong> y <em>*cursiva*</em></p>
+                <p>- Lista de elementos<br>- Otro elemento</p>
+            </div>
+
+            <h3>3. Outputs (Resultados)</h3>
+            <ul>
+                <li>Texto impreso por print()</li>
+                <li>Gráficos y visualizaciones</li>
+                <li>Tablas de datos</li>
+                <li>Mensajes de error</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Ventajas de los Notebooks -->
+        <div class="slide">
+            <h1>¿Por qué usar Notebooks?</h1>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card analytics">
+                    <h3>✅ Ventajas</h3>
+                    <ul>
+                        <li>Experimentación rápida</li>
+                        <li>Documentación integrada</li>
+                        <li>Visualización inmediata</li>
+                        <li>Fácil compartir resultados</li>
+                        <li>Ideal para análisis exploratorio</li>
+                        <li>Reproducibilidad</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>⚠️ Limitaciones</h3>
+                    <ul>
+                        <li>No ideal para aplicaciones grandes</li>
+                        <li>Control de versiones más complejo</li>
+                        <li>Puede volverse desordenado</li>
+                        <li>Dependiente del orden de ejecución</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight" style="text-align: center; margin-top: 30px;">
+                💡 Los notebooks son perfectos para Data Analytics, donde la exploración y documentación son clave
+            </div>
+        </div>
+
+        <!-- Slide 9: VSCode vs Google Colab -->
+        <div class="slide">
+            <h1>VSCode vs Google Colab</h1>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card analytics">
+                    <h3>💻 VSCode</h3>
+                    <ul>
+                        <li><strong>Ventajas:</strong></li>
+                        <li>• Trabajo offline</li>
+                        <li>• Control total del entorno</li>
+                        <li>• Integración con Git</li>
+                        <li>• Extensiones potentes</li>
+                        <li>• Rendimiento local</li>
+                    </ul>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>Desventajas:</strong></li>
+                        <li>• Requiere instalación</li>
+                        <li>• Configuración inicial</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card science">
+                    <h3>☁️ Google Colab</h3>
+                    <ul>
+                        <li><strong>Ventajas:</strong></li>
+                        <li>• No requiere instalación</li>
+                        <li>• GPU/TPU gratuitas</li>
+                        <li>• Colaboración en tiempo real</li>
+                        <li>• Librerías preinstaladas</li>
+                        <li>• Acceso desde cualquier lugar</li>
+                    </ul>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>Desventajas:</strong></li>
+                        <li>• Requiere internet</li>
+                        <li>• Limitaciones de tiempo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 20px;">
+                <span class="highlight">Usaremos ambos según las necesidades del proyecto</span>
+            </p>
+        </div>
+
+        <!-- Slide 10: Configuración del Entorno -->
+        <div class="slide">
+            <h1>Configuración del Entorno</h1>
+            
+            <h3>🔧 Preparación en VSCode:</h3>
+            <ol style="font-size: 1.1rem;">
+                <li>Instalar Python (versión 3.8 o superior)</li>
+                <li>Instalar VSCode</li>
+                <li>Instalar extensiones:
+                    <ul>
+                        <li>Python</li>
+                        <li>Jupyter</li>
+                        <li>Python Docstring Generator</li>
+                    </ul>
+                </li>
+                <li>Instalar librerías básicas:
+                    <div class="code-demo">pip install pandas numpy matplotlib seaborn jupyter</div>
+                </li>
+            </ol>
+
+            <h3>☁️ Uso de Google Colab:</h3>
+            <ol style="font-size: 1.1rem;">
+                <li>Acceder a <strong>colab.research.google.com</strong></li>
+                <li>Iniciar sesión con cuenta de Google</li>
+                <li>Crear nuevo notebook</li>
+                <li>¡Listo para empezar!</li>
+            </ol>
+        </div>
+
+        <!-- Slide 11: Primeros Pasos -->
+        <div class="slide">
+            <h1>Primeros Pasos con Notebooks</h1>
+            
+            <h3>Operaciones básicas:</h3>
+            <div class="jupyter-features">
+                <div class="feature">
+                    <strong>Shift + Enter</strong><br>
+                    Ejecutar celda
+                </div>
+                <div class="feature">
+                    <strong>A / B</strong><br>
+                    Insertar celda arriba/abajo
+                </div>
+                <div class="feature">
+                    <strong>M / Y</strong><br>
+                    Cambiar a Markdown/Code
+                </div>
+                <div class="feature">
+                    <strong>DD</strong><br>
+                    Eliminar celda
+                </div>
+            </div>
+
+            <h3>Estructura recomendada de un notebook:</h3>
+            <ol style="font-size: 1.1rem;">
+                <li><strong>Título y descripción</strong> (Markdown)</li>
+                <li><strong>Imports</strong> de librerías</li>
+                <li><strong>Carga de datos</strong></li>
+                <li><strong>Exploración inicial</strong></li>
+                <li><strong>Análisis y visualizaciones</strong></li>
+                <li><strong>Conclusiones</strong> (Markdown)</li>
+            </ol>
+        </div>
+
+        <!-- Slide 12: Próximos Pasos -->
+        <div class="slide">
+            <h1>¿Qué sigue?</h1>
+            
+            <div class="process-flow">
+                <div class="process-step">🐍<br>Python<br>Básico</div>
+                <div class="arrow">→</div>
+                <div class="process-step">🔢<br>NumPy</div>
+                <div class="arrow">→</div>
+                <div class="process-step">🐼<br>Pandas</div>
+                <div class="arrow">→</div>
+                <div class="process-step">📈<br>Visualización</div>
+            </div>
+
+            <h3>En las próximas clases aprenderemos:</h3>
+            <ul>
+                <li><strong>Python:</strong> Repaso completo del lenguaje</li>
+                <li><strong>NumPy:</strong> Introducción a arrays y operaciones</li>
+                <li><strong>Pandas:</strong> Dominio de la manipulación de datos</li>
+                <li><strong>Fuentes de datos:</strong> APIs, JSON y más</li>
+                <li><strong>Limpieza:</strong> Preprocesamiento de datos</li>
+                <li><strong>Visualización:</strong> Gráficos y dashboards</li>
+            </ul>
+
+            <div class="highlight" style="text-align: center; margin-top: 30px;">
+                🎯 Objetivo: Al final del curso serás capaz de analizar cualquier dataset y extraer insights valiosos
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a NumPy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            border-left: 5px solid #e74c3c;
+            padding-left: 20px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-left: 5px solid #e17055;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #e74c3c;
+        }
+
+        .comparison-card.numpy {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border-color: #27ae60;
+        }
+
+        .comparison-card.python {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-color: #3498db;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #cbd5e0;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .code-demo {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        .code-output {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .array-visual {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .array-1d, .array-2d {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .array-element {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background: #e74c3c;
+            color: white;
+            margin: 2px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .performance-chart {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .performance-comparison {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .performance-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bar-label {
+            min-width: 120px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .bar-visual {
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            color: white;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .bar-visual.python {
+            width: 300px;
+            background: #3498db;
+        }
+
+        .bar-visual.numpy {
+            width: 60px;
+            background: #27ae60;
+        }
+
+        .performance-result {
+            text-align: center;
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .operations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .operation-card {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e17055;
+        }
+
+        ul {
+            font-size: 1.1rem;
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .numpy-logo {
+            text-align: center;
+            font-size: 4rem;
+            margin: 20px 0;
+            color: #e74c3c;
+        }
+
+        .why-numpy {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #e17055;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+                margin: 10px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Slide 1: Título -->
+        <div class="slide">
+            <div class="numpy-logo">🔢</div>
+            <h1>Introducción a NumPy</h1>
+            <div style="text-align: center; margin-top: 50px;">
+                <h2 style="border: none; padding: 0;">La Base del Cálculo Científico en Python</h2>
+                <p style="font-size: 1.3rem; margin-top: 30px; color: #666;">
+                    Arrays y Operaciones Matemáticas Eficientes
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 2: ¿Qué es NumPy? -->
+        <div class="slide">
+            <h1>¿Qué es NumPy?</h1>
+            
+            <div class="definition-box">
+                <strong>NumPy</strong> (Numerical Python) es la librería fundamental para computación científica en Python. Proporciona arrays multidimensionales eficientes y herramientas para trabajar con ellos.
+            </div>
+
+            <h3>Características principales:</h3>
+            <ul>
+                <li><strong>🔢 Arrays N-dimensionales:</strong> Estructuras de datos homogéneas y eficientes</li>
+                <li><strong>⚡ Operaciones vectorizadas:</strong> Cálculos rápidos sin bucles explícitos</li>
+                <li><strong>🧮 Funciones matemáticas:</strong> Trigonometría, álgebra lineal, estadística</li>
+                <li><strong>🔗 Interoperabilidad:</strong> Base para Pandas, Matplotlib, Scikit-learn</li>
+                <li><strong>💾 Eficiencia de memoria:</strong> Almacenamiento optimizado de datos numéricos</li>
+                <li><strong>🌐 Estándar de la industria:</strong> Usado en ciencia, ingeniería y finanzas</li>
+            </ul>
+
+            <div class="why-numpy">
+                <h3 style="margin-top: 0;">¿Por qué es importante NumPy?</h3>
+                <p><strong>Es el fundamento de todo el ecosistema científico de Python.</strong> Sin NumPy, no existirían Pandas, Matplotlib, Scikit-learn ni la mayoría de librerías de análisis de datos.</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: NumPy vs Python básico -->
+        <div class="slide">
+            <h1>NumPy vs Python Básico</h1>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card python">
+                    <h3>🐍 Listas de Python</h3>
+                    <ul>
+                        <li><strong>Tipo:</strong> Heterogéneas (cualquier tipo)</li>
+                        <li><strong>Memoria:</strong> No optimizada</li>
+                        <li><strong>Operaciones:</strong> Requieren bucles</li>
+                        <li><strong>Velocidad:</strong> Lenta para cálculos</li>
+                        <li><strong>Funciones:</strong> Básicas</li>
+                    </ul>
+                    <div class="code-demo" style="font-size: 0.8rem;">
+# Multiplicar por 2
+lista = [1, 2, 3, 4, 5]
+resultado = []
+for x in lista:
+    resultado.append(x * 2)
+# [2, 4, 6, 8, 10]
+                    </div>
+                </div>
+                
+                <div class="comparison-card numpy">
+                    <h3>🔢 Arrays de NumPy</h3>
+                    <ul>
+                        <li><strong>Tipo:</strong> Homogéneos (mismo tipo)</li>
+                        <li><strong>Memoria:</strong> Altamente optimizada</li>
+                        <li><strong>Operaciones:</strong> Vectorizadas</li>
+                        <li><strong>Velocidad:</strong> Hasta 100x más rápido</li>
+                        <li><strong>Funciones:</strong> Cientos de funciones matemáticas</li>
+                    </ul>
+                    <div class="code-demo" style="font-size: 0.8rem;">
+# Multiplicar por 2
+import numpy as np
+array = np.array([1, 2, 3, 4, 5])
+resultado = array * 2
+# [2 4 6 8 10]
+                    </div>
+                </div>
+            </div>
+
+            <h3>Comparación de rendimiento:</h3>
+            <div class="performance-chart">
+                <p style="font-size: 1.1rem; margin-bottom: 25px;"><strong>Tiempo para sumar dos listas de 1 millón de números:</strong></p>
+                
+                <div class="performance-comparison">
+                    <div class="performance-bar">
+                        <div class="bar-label">Python básico:</div>
+                        <div class="bar-visual python">150ms</div>
+                    </div>
+                    
+                    <div class="performance-bar">
+                        <div class="bar-label">NumPy:</div>
+                        <div class="bar-visual numpy">20ms</div>
+                    </div>
+                </div>
+                
+                <div class="performance-result">
+                    ⚡ NumPy es 7.5x más rápido que Python básico
+                </div>
+            </div>
+
+            <div class="highlight" style="text-align: center; margin-top: 20px;">
+                🚀 NumPy convierte Python en una herramienta poderosa para cálculo científico
+            </div>
+        </div>
+
+        <!-- Slide 4: Arrays de NumPy -->
+        <div class="slide">
+            <h1>Arrays de NumPy</h1>
+            
+            <h2>¿Qué es un Array?</h2>
+            <div class="array-visual">
+                <p><strong>Un array es una colección de elementos del mismo tipo, organizados en una estructura multidimensional</strong></p>
+                
+                <h3>Array 1D (Vector)</h3>
+                <div class="array-1d">
+                    <span class="array-element">1</span>
+                    <span class="array-element">2</span>
+                    <span class="array-element">3</span>
+                    <span class="array-element">4</span>
+                    <span class="array-element">5</span>
+                </div>
+                
+                <h3>Array 2D (Matriz)</h3>
+                <div class="array-2d">
+                    <div>
+                        <span class="array-element">1</span>
+                        <span class="array-element">2</span>
+                        <span class="array-element">3</span>
+                    </div>
+                    <div>
+                        <span class="array-element">4</span>
+                        <span class="array-element">5</span>
+                        <span class="array-element">6</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Creando arrays:</h3>
+            <div class="code-demo">
+import numpy as np
+
+# Desde una lista
+arr1d = np.array([1, 2, 3, 4, 5])
+print(arr1d)  # [1 2 3 4 5]
+
+# Array 2D desde lista de listas
+arr2d = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr2d)
+# [[1 2 3]
+#  [4 5 6]]
+
+# Arrays especiales
+zeros = np.zeros(5)        # [0. 0. 0. 0. 0.]
+ones = np.ones(3)          # [1. 1. 1.]
+rango = np.arange(0, 10, 2) # [0 2 4 6 8]
+            </div>
+        </div>
+
+        <!-- Slide 5: Propiedades de los Arrays -->
+        <div class="slide">
+            <h1>Propiedades de los Arrays</h1>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📐</div>
+                    <h3>Shape (Forma)</h3>
+                    <div class="code-demo" style="font-size: 0.7rem;">
+arr = np.array([[1, 2, 3], 
+                [4, 5, 6]])
+print(arr.shape)  # (2, 3)
+# 2 filas, 3 columnas
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <h3>Dtype (Tipo)</h3>
+                    <div class="code-demo" style="font-size: 0.7rem;">
+arr_int = np.array([1, 2, 3])
+print(arr_int.dtype)  # int64
+
+arr_float = np.array([1.0, 2.0])
+print(arr_float.dtype)  # float64
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📏</div>
+                    <h3>Size (Tamaño)</h3>
+                    <div class="code-demo" style="font-size: 0.7rem;">
+arr = np.array([[1, 2, 3], 
+                [4, 5, 6]])
+print(arr.size)    # 6 elementos
+print(arr.ndim)    # 2 dimensiones
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Reshape (Cambiar forma)</h3>
+                    <div class="code-demo" style="font-size: 0.7rem;">
+arr = np.arange(6)      # [0 1 2 3 4 5]
+arr_2d = arr.reshape(2, 3)
+# [[0 1 2]
+#  [3 4 5]]
+                    </div>
+                </div>
+            </div>
+
+            <h3>Ejemplo práctico:</h3>
+            <div class="code-demo">
+# Crear array de datos de ventas
+ventas = np.array([100, 150, 200, 120, 180, 90, 250])
+
+print(f"Forma: {ventas.shape}")           # (7,)
+print(f"Tipo: {ventas.dtype}")            # int64
+print(f"Número de elementos: {ventas.size}")  # 7
+print(f"Dimensiones: {ventas.ndim}")      # 1
+
+# Convertir a matriz 7x1
+ventas_2d = ventas.reshape(7, 1)
+print(f"Nueva forma: {ventas_2d.shape}")  # (7, 1)
+            </div>
+        </div>
+
+        <!-- Slide 6: Operaciones con Arrays -->
+        <div class="slide">
+            <h1>Operaciones con Arrays</h1>
+            
+            <h2>Operaciones Aritméticas Elementales</h2>
+            <div class="operations-grid">
+                <div class="operation-card">
+                    <strong>Suma</strong>
+                    <div class="code-demo" style="font-size: 0.7rem; margin-top: 10px;">
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+print(a + b)  # [5 7 9]
+                    </div>
+                </div>
+                
+                <div class="operation-card">
+                    <strong>Multiplicación</strong>
+                    <div class="code-demo" style="font-size: 0.7rem; margin-top: 10px;">
+a = np.array([1, 2, 3])
+print(a * 2)  # [2 4 6]
+print(a * a)  # [1 4 9]
+                    </div>
+                </div>
+                
+                <div class="operation-card">
+                    <strong>Comparaciones</strong>
+                    <div class="code-demo" style="font-size: 0.7rem; margin-top: 10px;">
+a = np.array([1, 2, 3, 4])
+print(a > 2)  
+# [False False True True]
+                    </div>
+                </div>
+                
+                <div class="operation-card">
+                    <strong>Funciones Math</strong>
+                    <div class="code-demo" style="font-size: 0.7rem; margin-top: 10px;">
+a = np.array([0, 1, 2, 3])
+print(np.sqrt(a))
+print(np.sin(a))
+                    </div>
+                </div>
+            </div>
+
+            <h3>Ejemplo con datos reales:</h3>
+            <div class="code-demo">
+# Datos de temperatura en Celsius
+temp_celsius = np.array([20, 25, 30, 15, 22])
+
+# Convertir a Fahrenheit: F = C * 9/5 + 32
+temp_fahrenheit = temp_celsius * 9/5 + 32
+print(f"Celsius: {temp_celsius}")
+print(f"Fahrenheit: {temp_fahrenheit}")
+
+# Encontrar días calurosos (>25°C)
+dias_calurosos = temp_celsius > 25
+print(f"Días calurosos: {dias_calurosos}")
+
+# Temperatura promedio
+promedio = np.mean(temp_celsius)
+print(f"Temperatura promedio: {promedio}°C")
+            </div>
+        </div>
+
+        <!-- Slide 7: Funciones Útiles de NumPy -->
+        <div class="slide">
+            <h1>Funciones Útiles de NumPy</h1>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Estadísticas</h3>
+                    <div class="code-demo" style="font-size: 0.7rem;">
+arr = np.array([1, 2, 3, 4, 5])
+
+print(np.mean(arr))    # 3.0
+print(np.median(arr))  # 3.0
+print(np.std(arr))     # 1.58
+print(np.min(arr))     # 1
+print(np.max(arr))     # 5
+print(np.sum(arr))     # 15
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Búsqueda</h3>
+                    <div class="code-demo" style="font-size: 0.7rem;">
+arr = np.array([3, 1, 4, 1, 5])
+
+print(np.argmax(arr))    # 4 (índice del máximo)
+print(np.argmin(arr))    # 1 (índice del mínimo)
+print(np.where(arr > 3)) # (array([2, 4]),)
+print(np.unique(arr))    # [1 3 4 5]
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎲</div>
+                    <h3>Números Aleatorios</h3>
+                    <div class="code-demo" style="font-size: 0.7rem;">
+# Números aleatorios entre 0 y 1
+print(np.random.random(3))
+
+# Enteros aleatorios
+print(np.random.randint(1, 10, 5))
+
+# Distribución normal
+print(np.random.normal(0, 1, 3))
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">✂️</div>
+                    <h3>Indexing y Slicing</h3>
+                    <div class="code-demo" style="font-size: 0.7rem;">
+arr = np.array([0, 1, 2, 3, 4, 5])
+
+print(arr[2])      # 2
+print(arr[1:4])    # [1 2 3]
+print(arr[-1])     # 5
+print(arr[::2])    # [0 2 4]
+                    </div>
+                </div>
+            </div>
+
+            <h3>Ejemplo de análisis de ventas:</h3>
+            <div class="code-demo">
+# Datos de ventas mensuales
+ventas = np.array([1200, 1500, 1100, 1800, 2000, 1600, 1900, 2200, 1700, 1400, 1300, 2500])
+meses = np.array(['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 
+                  'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'])
+
+# Análisis estadístico
+print(f"Ventas promedio: {np.mean(ventas):.2f}")
+print(f"Mes con mayores ventas: {meses[np.argmax(ventas)]}")
+print(f"Mes con menores ventas: {meses[np.argmin(ventas)]}")
+
+# Meses con ventas superiores al promedio
+promedio = np.mean(ventas)
+meses_buenos = meses[ventas > promedio]
+print(f"Meses con ventas superiores al promedio: {meses_buenos}")
+            </div>
+        </div>
+
+        <!-- Slide 8: NumPy y el Ecosistema Python -->
+        <div class="slide">
+            <h1>NumPy: La Base del Ecosistema</h1>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🐼</div>
+                    <h3>Pandas</h3>
+                    <p>Los DataFrames de Pandas están construidos sobre arrays de NumPy. Todas las operaciones numéricas en Pandas usan NumPy internamente.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Matplotlib</h3>
+                    <p>Las gráficas de Matplotlib reciben arrays de NumPy como datos de entrada para crear visualizaciones.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Scikit-learn</h3>
+                    <p>Todos los algoritmos de machine learning esperan datos en formato de arrays de NumPy.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>TensorFlow/PyTorch</h3>
+                    <p>Los frameworks de deep learning son compatibles con NumPy y pueden convertir entre sus formatos.</p>
+                </div>
+            </div>
+
+            <h3>Ejemplo de integración:</h3>
+            <div class="code-demo">
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 1. Datos en NumPy
+datos_numpy = np.array([10, 20, 30, 40, 50])
+
+# 2. Convertir a Pandas
+df = pd.DataFrame({
+    'valores': datos_numpy,
+    'cuadrados': datos_numpy ** 2
+})
+
+# 3. Visualizar con Matplotlib
+plt.plot(datos_numpy, datos_numpy ** 2)
+plt.title('Función Cuadrática')
+plt.show()
+
+# Todo funciona perfectamente integrado!
+            </div>
+
+            <div class="highlight" style="text-align: center; margin-top: 30px;">
+                🔗 NumPy es el "pegamento" que une todo el ecosistema científico de Python
+            </div>
+        </div>
+
+        <!-- Slide 9: ¿Por qué NumPy antes de Pandas? -->
+        <div class="slide">
+            <h1>¿Por qué aprender NumPy antes de Pandas?</h1>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card numpy">
+                    <h3>🎯 Comprensión profunda</h3>
+                    <ul>
+                        <li>Entender cómo funciona Pandas internamente</li>
+                        <li>Depurar problemas de rendimiento</li>
+                        <li>Optimizar operaciones complejas</li>
+                        <li>Usar funciones específicas cuando sea necesario</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>⚡ Mejor rendimiento</h3>
+                    <ul>
+                        <li>Operaciones vectorizadas más eficientes</li>
+                        <li>Menor overhead para cálculos simples</li>
+                        <li>Control directo sobre memoria</li>
+                        <li>Integración con bibliotecas de bajo nivel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Cuándo usar NumPy vs Pandas:</h3>
+            <div class="why-numpy">
+                <h4>✅ Usar NumPy cuando:</h4>
+                <ul>
+                    <li>Trabajas principalmente con datos numéricos</li>
+                    <li>Necesitas operaciones matemáticas complejas</li>
+                    <li>El rendimiento es crítico</li>
+                    <li>Trabajas con arrays multidimensionales</li>
+                    <li>Integras con bibliotecas científicas</li>
+                </ul>
+                
+                <h4>✅ Usar Pandas cuando:</h4>
+                <ul>
+                    <li>Trabajas con datos tabulares (como Excel)</li>
+                    <li>Necesitas etiquetas de filas y columnas</li>
+                    <li>Manejas diferentes tipos de datos</li>
+                    <li>Realizas análisis exploratorio de datos</li>
+                    <li>Lees/escribes archivos CSV, Excel, etc.</li>
+                </ul>
+            </div>
+
+            <div class="highlight" style="text-align: center; margin-top: 30px;">
+                🧠 NumPy + Pandas = Herramientas complementarias para análisis completo
+            </div>
+        </div>
+
+        <!-- Slide 10: Preparándose para usar NumPy -->
+        <div class="slide">
+            <h1>Preparándose para usar NumPy</h1>
+            
+            <h3>🔧 Instalación</h3>
+            <div class="code-demo">
+# Instalación básica
+pip install numpy
+
+# Verificar instalación
+import numpy as np
+print(np.__version__)
+print("NumPy instalado correctamente!")
+            </div>
+
+            <h3>📚 Conceptos clave a recordar</h3>
+            <ul>
+                <li><strong>Array:</strong> Estructura de datos homogénea y eficiente</li>
+                <li><strong>Vectorización:</strong> Operaciones aplicadas a todo el array sin bucles</li>
+                <li><strong>Broadcasting:</strong> Operaciones entre arrays de diferentes tamaños</li>
+                <li><strong>dtype:</strong> Tipo de datos del array (int64, float64, etc.)</li>
+                <li><strong>Shape:</strong> Dimensiones del array (filas, columnas)</li>
+            </ul>
+
+            <h3>🎯 En la práctica</h3>
+            <div class="code-demo">
+# Importar siempre así
+import numpy as np
+
+# Crear arrays básicos
+arr = np.array([1, 2, 3, 4, 5])
+
+# Operaciones básicas
+print(arr * 2)        # Vectorización
+print(arr.mean())     # Estadísticas
+print(arr > 3)        # Comparaciones
+
+# ¡Listo para usar con Pandas!
+            </div>
+
+            <div class="why-numpy" style="margin-top: 30px;">
+                <h3 style="margin-top: 0;">¡Siguiente paso: Pandas! 🐼</h3>
+                <p>Ahora que entiendes NumPy, Pandas será mucho más fácil. Los DataFrames usan arrays de NumPy internamente, por lo que todo lo que has aprendido te será útil.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
