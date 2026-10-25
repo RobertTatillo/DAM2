@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rober\\OneDrive - Centro de Formación Somorrostro\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\ProjPrueba.csproj": {}
+    "C:\\Git\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\ProjPrueba.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rober\\OneDrive - Centro de Formación Somorrostro\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\ProjPrueba.csproj": {
+    "C:\\Git\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\ProjPrueba.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rober\\OneDrive - Centro de Formación Somorrostro\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\ProjPrueba.csproj",
+        "projectUniqueName": "C:\\Git\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\ProjPrueba.csproj",
         "projectName": "ProjPrueba",
-        "projectPath": "C:\\Users\\rober\\OneDrive - Centro de Formación Somorrostro\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\ProjPrueba.csproj",
+        "projectPath": "C:\\Git\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\ProjPrueba.csproj",
         "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rober\\OneDrive - Centro de Formación Somorrostro\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\obj\\",
+        "outputPath": "C:\\Git\\DAM2\\ACCESO A DATOS\\1. Programacion basica\\Ejercicios\\ProjPrueba\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rober\\OneDrive - Centro de Formación Somorrostro\\DAM2\\ACCESO A DATOS\\2. Gestion de ficheros\\Ejercicios\\Practica2.1\\Practica2.1..csproj",
+      "projectUniqueName": "C:\\Git\\DAM2\\ACCESO A DATOS\\2. Gestion de ficheros\\Ejercicios\\Practica2.1\\Practica2.1..csproj",
       "projectName": "Practica2.1.",
-      "projectPath": "C:\\Users\\rober\\OneDrive - Centro de Formación Somorrostro\\DAM2\\ACCESO A DATOS\\2. Gestion de ficheros\\Ejercicios\\Practica2.1\\Practica2.1..csproj",
+      "projectPath": "C:\\Git\\DAM2\\ACCESO A DATOS\\2. Gestion de ficheros\\Ejercicios\\Practica2.1\\Practica2.1..csproj",
       "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rober\\OneDrive - Centro de Formación Somorrostro\\DAM2\\ACCESO A DATOS\\2. Gestion de ficheros\\Ejercicios\\Practica2.1\\obj\\",
+      "outputPath": "C:\\Git\\DAM2\\ACCESO A DATOS\\2. Gestion de ficheros\\Ejercicios\\Practica2.1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config"
