@@ -1,0 +1,15 @@
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\bin\Debug\net10.0\Practica2.2.exe
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\bin\Debug\net10.0\Practica2.2.deps.json
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\bin\Debug\net10.0\Practica2.2.runtimeconfig.json
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\bin\Debug\net10.0\Practica2.2.dll
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\bin\Debug\net10.0\Practica2.2.pdb
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\Practica2.2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\Practica2.2.AssemblyInfoInputs.cache
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\Practica2.2.AssemblyInfo.cs
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\Practica2.2.csproj.CoreCompileInputs.cache
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\Practica2.2.sourcelink.json
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\Practica2.2.dll
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\refint\Practica2.2.dll
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\Practica2.2.pdb
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\Practica2.2.genruntimeconfig.cache
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Practica2.2\obj\Debug\net10.0\ref\Practica2.2.dll
