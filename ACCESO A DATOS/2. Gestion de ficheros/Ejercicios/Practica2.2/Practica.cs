@@ -65,13 +65,6 @@ class Program
             try{
                 opcion = int.Parse(Console.ReadLine());
 
-                if (opcion >= 3 && opcion <= 6 && File.Exists(rutaXmlDestino))
-                {
-                    Console.WriteLine("El archivo ya existía: no se vuelve a crear.");
-                    Console.WriteLine("Elige otro nombre con la opción 2.");
-                    continue;
-                }
-
                 switch (opcion)
                 {
                     case 1:
@@ -123,13 +116,6 @@ class Program
 
             try{
                 opcion = int.Parse(Console.ReadLine());
-
-                if (opcion >= 3 && opcion <= 6 && File.Exists(rutaCsvDestino))
-                {
-                    Console.WriteLine("El archivo ya existía: no se vuelve a crear.");
-                    Console.WriteLine("Elige otro nombre con la opción 2.");
-                    continue;
-                }
 
                 switch (opcion)
                 {

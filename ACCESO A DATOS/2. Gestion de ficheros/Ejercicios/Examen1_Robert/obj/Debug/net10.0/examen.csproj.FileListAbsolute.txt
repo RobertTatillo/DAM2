@@ -1,0 +1,15 @@
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\bin\Debug\net10.0\examen.exe
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\bin\Debug\net10.0\examen.deps.json
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\bin\Debug\net10.0\examen.runtimeconfig.json
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\bin\Debug\net10.0\examen.dll
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\bin\Debug\net10.0\examen.pdb
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\examen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\examen.AssemblyInfoInputs.cache
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\examen.AssemblyInfo.cs
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\examen.csproj.CoreCompileInputs.cache
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\examen.sourcelink.json
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\examen.dll
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\refint\examen.dll
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\examen.pdb
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\examen.genruntimeconfig.cache
+C:\Git\DAM2\ACCESO A DATOS\2. Gestion de ficheros\Ejercicios\Examen1_Robert\obj\Debug\net10.0\ref\examen.dll
